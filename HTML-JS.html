@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<meta charset="UTF-8">
+<html>
+<h3>Testes HTML e JavaScript</h3>
+<script>
+
+    function pulaLinha() {
+        document.write("<br><hr><br>");
+    }
+
+    function pulaLinha2() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write("<big>" + frase + "</big>");
+        pulaLinha();
+    }
+
+    function mostra2(frase) {
+        document.write(frase);
+        pulaLinha2();
+    }
+
+    function calculaImc(altura, peso) {
+
+        return peso / (altura * altura);
+    }
+
+    function sorteia(n) {
+        return Math.round(Math.random() * 100);
+    }
+
+    var tanque = 40;
+
+    var caminhoComGasolina = 480;
+    consumoDeGasolina = caminhoComGasolina / tanque;
+
+    var caminhoComAlcool = 300;
+    consumoDealcool = caminhoComAlcool / tanque;
+
+    mostra("O consumo de gasolina foi " + consumoDeGasolina + ".");
+
+    mostra("O consumo de alcool foi " + consumoDealcool + ".");
+
+    var minhaIdade = 25;
+    var idadeAmigo = 30;
+    var diferencaIdade = minhaIdade - idadeAmigo;
+
+    mostra("Nossa diferença de idade e " + diferencaIdade);
+
+      //IMC
+      var imcFlavio = calculaImc(1.71,73);
+      var imcAmigo = calculaImc(1.72,68);
+      var totalImc2 =  imcFlavio + imcAmigo;
+
+      mostra2 (imcFlavio);
+      mostra2 (imcAmigo);
+
+      pulaLinha();
+
+      ///// OUTRA FORMA DE FAZER
+      var totalImc = calculaImc(1.71,73) + calculaImc(1.72,68);
+     mostra2("(1)A soma dos ICMS`s é " + totalImc);
+     mostra2("(2)A soma dos ICMS`s é " + totalImc2);
+
+     ////INTERAGINDO COM O USUARIO
+     var nome = prompt("Informe o seu nome"); 
+     var alturaInformada = prompt(nome + ", informe sua altura"); 
+     var pesoInformado = prompt(nome + ", informe seu peso");
+
+     var imc = calculaImc(alturaInformada, pesoInformado);
+
+     document.write(nome + ", o seu IMC e " + imc);
+
+     pulaLinha2();
+
+     if (imc >= 18.5 && imc <=35){
+         mostra2("Seu IMC está excelente!")
+     } 
+     pulaLinha();
+    //// CONVERTENDO TEXTO EM NUMERO
+
+    var vitorias = parseInt(prompt("Entre com o número de vitórias.")); 
+    var empates = parseInt(prompt("Entre com o número de empates."));
+    var pontos = vitorias  * 3 + empates;
+
+    mostra2("Os pontos do seu time são " + pontos);
+    pulaLinha2()
+
+    /// Condições 
+    if(pontos > 28) {
+        mostra2("Seu time está melhor do que no ano passado.");
+     }
+
+    if(pontos < 28) {
+        mostra2("Seu time está pior do que no ano passado.");
+    }
+
+    if(pontos == 28) {
+        mostra2("Seu time está igual ao ano passado.");
+    }       
+    mostra2("FIM");
+
+    pulaLinha();
+
+    ///JODO DE ADIVINHAÇÃO 
+   // INTERROMPENDO UMA REPETIÇÃO
+    var numeroPensado = Math.round(Math.random() * 10);
+    console.log(numeroPensado);
+    
+    var tentativas = 1;
+    while (tentativas <=3)
+    {
+        var chute = parseInt(prompt("Digite seu chute!"));
+
+        if(chute == numeroPensado) 
+        {       
+            mostra("Você ACERTOU, o número pensado era " + numeroPensado);
+            break;
+        }           
+        else 
+        {
+            mostra("Você ERROU!");
+        }
+
+        tentativas ++;
+    }
+        mostra2("FIM");
+
+
+    pulaLinha();
+
+    var numeroPensado = sorteia();
+    var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+
+    if (chute == numeroPensado) {
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+    }
+    if (chute > numeroPensado) {
+        mostra("Você errou! O numero chutado é maior que o numero pensado " + numeroPensado);
+    }
+    else {
+        mostra("Você errou! O numero chutado é menor que o numero pensado " + numeroPensado);
+    }
+
+    pulaLinha();
+
+    //REPETIR ENQUANTO 
+    var limite = parseInt(prompt("Entre com a data limite"));
+
+    var anoCopa = 1930;
+
+    while (anoCopa <= limite) {
+
+        mostra("Teve copa em " + anoCopa);
+        anoCopa = anoCopa + 4;
+    }
+
+    mostra("FIM");
+
+    pulaLinha();
+
+    var contador = 2;
+    while (contador <= 100){
+        mostra2 ("Numeros Pares: " + contador);
+        contador = contador + 2;
+    }
+    mostra2 ("FIM2")
+
+    pulaLinha();
+
+    var contador = 30
+    while (contador <=40)
+    {
+        if(contador == 33)
+        {
+            contador = contador + 1;    
+        }
+        if (contador == 37)
+        {
+            contador = contador + 1;
+        }
+        else 
+        {
+            mostra2(contador);
+            contador = contador + 1;
+        }
+        contador = contador + 1;
+    }
+    mostra2("FIM");
+
+    pulaLinha();
+
+    var contador1 = 20;
+
+    while (contador1 >= 0)
+    {
+        mostra2(contador1);
+        contador1 = contador1 - 1;
+    }
+    mostra2("FIM3")
+
+    pulaLinha();
+
+    var loginCadastrado = "alura";
+    var senhaCadastrada = "alura321";
+    var tentativaAtual = 1;
+    var maximoTentativas = 3;
+    console.log("aqui");
+    while (tentativaAtual <= maximoTentativas)
+    {
+        
+        console.log("aqui");
+        var loginInformado = prompt("Informe seu login");
+        var senhaInformada = prompt("Informe sua senha");
+
+        if( loginCadastrado == loginInformado && senhaCadastrada == senhaInformada ) 
+        {
+            alert("Bem-vindo ao sistema " + loginInformado);
+            tentativaAtual = maximoTentativas;
+        }       
+        else 
+        {
+            if (tentativaAtual == 3)
+            {
+                alert("Número permitido de tentativas ultrapassados!");
+                console.log(  tentativaAtual) 
+            }
+            else 
+            {
+                alert("Login inválido. Tente novamente");
+            }
+           
+        }    
+        tentativaAtual = tentativaAtual + 1;  
+    }
+        mostra2("Fim");
+
+        pulaLinha();
+
+        for (var multiplicador = 1; multiplicador <=10; multiplicador++)
+        {
+            mostra2(7 * multiplicador);
+        }
+
+        //COM FOR 
+        for( var i = 0; i < 10; i++ ) 
+        {
+            alert( "O resultado é " + (2 * i) );
+        }
+        //MESMO RESULTADO COM WHILE        
+        var i = 0
+        while (i<10)
+        {
+            alert( "O resultado é " + (2 * i) );
+            i++;
+        }
+
+        pularlinha();
+
+        //ACUMULANDO VALORES 
+           var totalFamiliares = parseInt(prompt ("Quantidade de familiares?"))    
+           var numero = 1;
+           var totalIdades = 0;
+           while (numero <= totalFamiliares) 
+           {
+               var idade = parseInt(prompt("Informe idade do familiar"))
+               totalIdades = totalIdades + idade;
+               numero ++;
+            } 
+            var mediaDasIdades = totalIdades / totalFamiliares;
+            mostra2("A média das idades dos familiares é " + mediaDasIdades);
+            mostra2("FIM");  
+        
+        pularlinha();
+
+       // /REPETIÇÕES ANINHADAS 
+            for (var linha = 1; linha <=3 ; linha++)
+            {
+                for (coluna = 1; coluna <=10; coluna++)
+                {
+                    document.write("*");
+                }    
+                pulaLinha2();
+            }
+               
+    </script>
+</script>
+
+</html>
